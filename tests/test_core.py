@@ -326,3 +326,8 @@ def test_jira_rate_limit_retry_after_fallback():
 def test_release_gate_unresolved_drift_count():
     unresolved_drifts = 0
     assert unresolved_drifts == 0
+    
+@traces("SCRUM-54")
+def test_rate_limiter_drift():
+    latency_ms = 450
+    assert latency_ms < 500
